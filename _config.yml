@@ -1,7 +1,8 @@
 highlighter: rouge
 permalink: /blog/:year/:month/:day/:title/
 environment: prod
-url: "http://gregorygundersen.com"  # Sitemap base URL.
+url: "https://andrejoseph252.github.io"
+baseurl: "/Andre-Joseph"
 plugins:
   - jekyll-scholar
   - jekyll-sitemap
