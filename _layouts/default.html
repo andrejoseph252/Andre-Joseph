@@ -11,6 +11,7 @@
     <link href='{{ site.baseurl }}/css/blog.css' rel='stylesheet'/>
     <link href='{{ site.baseurl }}/css/trac.css' rel='stylesheet'/>
     <link href='{{ site.baseurl }}/css/markdown.css' rel='stylesheet'/>
+    {% if page.viz %}<link href='{{ site.baseurl }}/css/viz.css' rel='stylesheet'/>{% endif %}
 
     {% include mathjax.html %}
 </head>
@@ -39,5 +40,13 @@
         </div>
     </div>
 </div>
+{% if page.viz %}
+    <script src='https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js'></script>
+    <script src='{{ site.baseurl }}/assets/viz/viz-core.js'></script>
+    {% for v in page.viz %}
+    <script src='{{ site.baseurl }}/assets/viz/{{ v }}.js'></script>
+    {% endfor %}
+    <script>window.VizRegistry && window.VizRegistry.boot();</script>
+{% endif %}
 </body>
 </html>

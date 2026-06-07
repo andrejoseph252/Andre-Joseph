@@ -1,0 +1,157 @@
+/* viz.css — styling for custom JS visualizations (.viz containers). */
+
+/* ---- interactive-example segment (repeatable) ----------------------- */
+.article .interactive-example {
+  background: #f6f6f7;
+  border-radius: 12px;
+  /* top  |  sides  |  bottom  — adjust the top/bottom values to taste */
+  padding: 14px 28px 16px;
+  margin: 34px 0;
+}
+/* zero the heading/last-element margins so the padding above is the single
+   source of truth for the box's inner top/bottom spacing */
+.article .interactive-example > :first-child { margin-top: 0; }
+.article .interactive-example > :last-child { margin-bottom: 0; }
+
+.viz {
+  margin: 1.4em auto 0;
+  max-width: 470px;
+}
+
+/* ---- figure: plate with a short caption beneath --------------------- */
+.viz-mle-figure { display: block; }
+
+.viz-mle-card {
+  --accent: #cf7a3c;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 12px;
+  padding: 14px 15px 11px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.viz-mle-figcaption {
+  margin-top: 10px;
+  font-family: -apple-system, Helvetica, arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.62);
+  text-align: left;
+}
+.viz-mle-figcaption em { font-style: italic; }
+.viz-mle-fignum {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.viz-mle-chart { line-height: 0; }
+.viz-mle-svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* ---- typography (tied to the KaTeX math fonts already on the page) -- */
+.viz-mle-tick {
+  font-family: 'KaTeX_Main', Georgia, 'Times New Roman', serif;
+  font-size: 11px;
+}
+.viz-mle-axis-title {
+  font-family: 'KaTeX_Main', Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+.viz-mle-legend text {
+  font-family: 'KaTeX_Main', Georgia, serif;
+  font-size: 11px;
+}
+.viz-mle-meter-cap {
+  font-family: 'KaTeX_Math', 'KaTeX_Main', serif;
+  font-style: italic;
+  font-size: 12px;
+}
+.viz-mle-meter-val {
+  font-family: 'KaTeX_Main', Georgia, 'Times New Roman', serif;
+  font-size: 11px;
+  font-weight: 700;
+}
+.viz-mle-axis .domain,
+.viz-mle-axis line { shape-rendering: crispEdges; }
+
+/* ---- controls ------------------------------------------------------- */
+.viz-mle-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px 22px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.viz-mle-slider {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.viz-mle-slider-label {
+  font-family: 'KaTeX_Math', 'KaTeX_Main', 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.78);
+  min-width: 0.9em;
+  text-align: center;
+}
+
+.viz-mle-slider-value {
+  font-family: 'KaTeX_Main', Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  color: var(--accent);
+  min-width: 2.6em;
+}
+
+/* ---- custom range slider (cross-browser) ---------------------------- */
+.viz-mle-slider-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 116px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.13);
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+}
+.viz-mle-slider-input:focus-visible { box-shadow: 0 0 0 3px rgba(207, 122, 60, 0.22); border-radius: 999px; }
+
+.viz-mle-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(207, 122, 60, 0.55), 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.viz-mle-slider-input::-webkit-slider-thumb:hover { transform: scale(1.14); }
+.viz-mle-slider-input:active::-webkit-slider-thumb {
+  transform: scale(1.14);
+  box-shadow: 0 0 0 5px rgba(207, 122, 60, 0.16), 0 1px 4px rgba(0, 0, 0, 0.32);
+}
+
+.viz-mle-slider-input::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.13);
+}
+.viz-mle-slider-input::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(207, 122, 60, 0.55), 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.12s ease;
+}
+.viz-mle-slider-input:active::-moz-range-thumb { transform: scale(1.14); }
+
